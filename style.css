@@ -1,0 +1,484 @@
+/* Allgemeine Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e0e0e0; /* Grauer Hintergrund */
+  color: #333;
+}
+
+/* Container für die gesamte Seite */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+    
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 0;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+}
+nav ul li a:hover {
+  color: #007bff;
+}
+
+/* Carousel ganz oben */
+.carousel {
+  width: 100%;
+  height: 600px; /* or your preferred height */
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel img.active {
+  opacity: 1;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  z-index: 10;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.prev:hover, .next:hover {
+  opacity: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+@keyframes slide {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  45% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  70% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+/* Style for caption box */
+.caption-box {
+  position: absolute; /* Über dem Bild positionieren */
+  bottom: 50px; /* Abstand vom unteren Rand */
+  left: 50%; /* Zentriert horizontal */
+  transform: translateX(-50%);
+  width: 80%; /* Breite der Box */
+  padding: 15px 20px; /* Innenabstand */
+  background: rgba(177, 177, 177, 0.6); /* Dunkler halbtransparenter Hintergrund */
+  color: #fff; /* Weiße Schrift */
+  border-radius: 0px; /* Abgerundete Ecken */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Schatten */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 30px; /* Schriftgröße */
+  text-align: center; /* Text zentrieren */
+  z-index: 10; /* Über anderen Elementen */
+}
+/* Header mit Overlay und Text, fix positioniert */
+.header-section {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  background-image: url('city.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.header-section::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+}
+.header-text {  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 4em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 80%;
+  font-weight: bold;
+}
+
+/* Textbox hinter dem Header, z-index hoch, transparent */
+.info-box {
+  position: relative;
+  z-index: 2;
+  width: 800px;
+  margin: -50px auto 20px auto;
+  background: rgba(255,255,255,0.7);
+  padding: 20px;
+  border-radius: 0; /* keine Runden Ecken */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 1.5em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #333333;
+  line-height: 1.5;
+  text-align: center;
+}
+.info-text {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: relative;
+  left: 10%;
+  width: 60%;
+  font-size: 20px;
+  padding-bottom: 60px;
+ 
+}
+
+/* Collage mit Text auf weißen, halbtransparenten Hintergrund */
+.discover {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 40px 20px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.discover h3 {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* Für die große und kleine Bilder im Discover-Bereich */
+.discover .large-img {
+  flex: 2 1 60%;
+  aspect-ratio: 4 / 3;
+  position: relative;
+}
+.discover .large-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.discover .small-imgs {
+  flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.discover .small-imgs .img-container {
+  flex: 1;
+  aspect-ratio: 4 / 3;
+  position: relative;
+}
+.discover .small-imgs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Hover-Effekt für die Bilder in Discover und Events, expandieren leicht */
+.discover .small-imgs img:hover,
+.event-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay-Textbox über den Bildern (für Discover und Events) */
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: rgba(177, 177, 177, 0.6); /* halbtransparenter Hintergrund */
+  color: #333;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-align: center;
+}
+.discover-info {
+  position: relative;
+  left: 10%;
+  width: 60%;
+  font-size: 20px;
+  
+}
+/* Spezifisch für die Discover-Bilder mit Overlay-Text */
+.discover .img-container {
+  position: relative;
+}
+.discover .img-container .overlay-text {
+  display: none;
+}
+.discover .img-container:hover .overlay-text {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  background-color: rgba(177, 177, 177, 0.6);
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 0px;
+}
+.caption-large {
+  position: absolute;
+  top: 85%; /* Vertikale Mitte des Containers */
+  left: 40%; /* Leicht links zentriert */
+  transform: translate(-50%, -50%); /* Zentriert relativ zu Top/Left */
+  width: 60%; /* Breite der Box */
+  padding: 20px;
+  background: rgba(143, 143, 143, 0.7); /* Dunkler halbtransparenter Hintergrund */
+  color: #fff;
+  border-radius: 0px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  z-index: 20; /* Über dem Bild */
+}
+
+/* Hintergrund für Absätze, ähnlich der Berliner Seite */
+.section-background {
+  background-color: #f3f3f3;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: relative;
+  margin-left: 40px;
+  margin-top: 40px;
+  max-width: 1200px;
+  margin: 5px auto 10px auto; /* zentrieren und Abstand nach unten */
+  padding-top: 5px;
+  
+  } 
+
+
+
+
+/* Für die Event-Galerie: 2x2 Raster, kleinere Bilder, keine Runden Ecken */
+.text-events {
+  margin-left: 20px;
+  margin-top: 20px;
+
+
+}
+
+.event-gallery {
+  display: grid;
+  height: auto;
+  padding: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+ 
+ 
+}
+.event-item {
+  position: relative;
+}
+.event-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 300px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+/* Hover-Expansion für Event-Bilder */
+.event-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay-Textbox über den Event-Bildern */
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: rgba(143, 138, 138, 0.815);
+  color: #ffffff  ;
+  padding: 8px;
+  border-radius: 0;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+/* Responsive Anpassungen */
+@media(max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  .discover {
+    flex-direction: column;
+  }
+  .discover .large-img, .discover .small-imgs {
+    flex: 1 1 100%;
+  }
+}
+
+.info-section {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  gap: 5px; /* Abstand zwischen den Boxen */
+}
+
+.info-box {
+  width: 350px;
+  display: flex;
+  border: 1px solid #ddd; /* Rahmen, ohne abgerundete Ecken */
+  overflow: hidden; /* Keine abgerundeten Ecken */
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.info-image {
+  width: 180px; /* feste Breite für das Bild */
+  height: auto;
+  object-fit: cover;
+}
+
+.info-details {
+  padding: 10px;
+  flex: 1;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.stars {
+  color: #f5a623; /* Sternfarbe */
+  margin-right: 5px;
+}
+
+.reviews {
+  color: #999;
+  margin-right: 10px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.features li {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-prices {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Container für die Übersicht */
+.faehrtien-übersicht {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: nowrap;
+  width: 1000px;
+  margin-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Kartenstil */
+.fahrt-card {
+  background-color: #fff; /* oder passend zu deinem Design */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.fahrt-card:hover {
+  transform: scale(1.02);
+}
+
+/* Bild */
+.fahrt-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Überschrift */
+.fahrt-card h3 {
+  margin: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Text */
+.fahrt-card p {
+  margin: 0 10px 10px 10px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* Preis */
+.fahrt-card .preis {
+  font-weight: bold;
+  margin: 0 10px 10px 10px;
+  color: #000;
+}
+
+
