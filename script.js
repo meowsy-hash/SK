@@ -29,20 +29,19 @@ function showPrevImage() {
   showImage(currentIndex);
 }
 
-// Automatic slideshow
+
 setInterval(showNextImage, 5000);
 
-// Arrow buttons
+
 document.querySelector('.next').addEventListener('click', showNextImage);
 document.querySelector('.prev').addEventListener('click', showPrevImage);
 
-// Initialize caption
 showImage(currentIndex);
 
 document.querySelectorAll('nav a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    e.preventDefault(); // Verhindert den Standard-Jump
-    const targetID = this.getAttribute('href').substring(1); // z.B. "discover"
+    e.preventDefault(); 
+    const targetID = this.getAttribute('href').substring(1); 
     const targetSection = document.getElementById(targetID);
     if (targetSection) {
       targetSection.scrollIntoView({ behavior: 'smooth' });
